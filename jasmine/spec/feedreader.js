@@ -92,7 +92,7 @@ $(function() {
         loadFeed(0, done);
       });
 
-      it('At least one post after loadFeed done', function(done) {
+      it('at least one post after loadFeed done', function(done) {
         var entriesCount = $('.feed > .entry-link').length;
 
         expect(entriesCount).toBeDefined();
@@ -101,10 +101,30 @@ $(function() {
       });
     });
 
-    /* TODO: Write a new test suite named "New Feed Selection"
+    /* TODO: Write a new test suite named "New Feed Selection" */
+    describe('Initial Entries', function() {
+      /* TODO: Write a test that ensures when a new feed is loaded
+       * by the loadFeed function that the content actually changes.
+       * Remember, loadFeed() is asynchronous.
+       */
+       var content;
+       var anotherContent;
 
-        /* TODO: Write a test that ensures when a new feed is loaded
-         * by the loadFeed function that the content actually changes.
-         * Remember, loadFeed() is asynchronous.
-         */
+       beforeEach(function(done) {
+         loadFeed(1, function() {
+           content = $('.feed > .entry-link:first-child').text();
+
+           loadFeed(2, function() {
+             anotherContent = $('.feed > .entry-link:first-child').text();
+
+             done();
+           })
+         });
+       });
+
+      it('content actually changes when we load other feed', function(done) {
+        expect(content).not.toEqual(anotherContent);
+        done();
+      });
+    });
 }());
