@@ -8,3 +8,8 @@ In this project you are given a web-based application that reads RSS feeds. The 
   $> git clone https://github.com/RusPosevkin/udacity-feedreader-testing.git
   ```
 2. Open index.html in the browser.
+
+
+## Result
+
+![Demo image](https://raw.githubusercontent.com/RusPosevkin/udacity-feedreader-testing/master/demo.png "Demo image")
